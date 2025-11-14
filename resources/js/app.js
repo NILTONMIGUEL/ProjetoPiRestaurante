@@ -4,44 +4,65 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
     nav.classList.toggle('active');
 });
 
+//funcionalidades do carrossel em tamanhos de telas
+
+
 // 2. Funcionalidade do Carrossel do Cardápio
-const carouselTrack = document.getElementById('carousel-track');
-const menuCards = document.querySelectorAll('.menu-card');
-const cardWidth = menuCards[0] ? menuCards[0].offsetWidth + 30 : 330; // Largura do card + margem
-let currentIndex = 0;
 
-function moveCarousel(direction) {
-    const visibleCards = Math.floor(carouselTrack.parentElement.offsetWidth / cardWidth);
-    const totalCards = menuCards.length;
 
-    // Calcula o novo índice
-    currentIndex += direction;
+const cardBase = document.getElementById('carousel-track');
+const cardElementUnico = document.querySelector('.menu-card');
+const cardWidth = cardElementUnico.offsetWidth + 10;
 
-    // Lógica para loop ou limites
-    if (currentIndex > totalCards - visibleCards) {
-        currentIndex = 0; // Volta para o início (loop)
-    } else if (currentIndex < 0) {
-        currentIndex = totalCards - visibleCards; // Volta para o fim (loop)
+
+let index = 0;
+
+function carrossel(){
+
+    let width = window.innerWidth;
+
+    if(width >= 1360){
+        index++;
+
+        if(index > cardBase.children.length -3){
+            index = 0;
+        }
+    
+        cardBase.style.transform = `translateX(-${cardWidth * index}px)`;
     }
-
-    // Aplica a translação
-    const offset = -currentIndex * cardWidth;
-    carouselTrack.style.transform = `translateX(${offset}px)`;
+    else if(width >= 1238){
+            index++;
+            if(index > cardBase.children.length -3){
+                index = 0;
+                
+            }
+            cardBase.style.transform = `translateX(-${cardWidth * index}px)`;
+    }
+    else if(width >= 707){ //882
+            index++;
+            if(index > cardBase.children.length -2){
+                index = 0;
+                
+            }
+            cardBase.style.transform = `translateX(-${cardWidth * index}px)`;
+    }
+    else if(width >= 375){
+            index++;
+            if(index > cardBase.children.length -1){
+                index = 0;
+                
+            }
+            cardBase.style.transform = `translateX(-${cardWidth * index}px)`;
+    }
+    else if(width >= 344){
+            index++;
+            if(index > cardBase.children.length -1){
+                index = 0;
+                
+            }
+            cardBase.style.transform = `translateX(-${cardWidth * index}px)`;
+    }
+    
 }
 
-// Inicializa o carrossel (para garantir que os botões funcionem mesmo se o JS carregar depois do HTML)
-window.onload = () => {
-    // Adiciona o listener de redimensionamento para ajustar o carrossel em telas menores
-    window.addEventListener('resize', () => {
-        // Reseta o índice e a posição ao redimensionar
-        currentIndex = 0;
-        carouselTrack.style.transform = `translateX(0px)`;
-    });
-};
-
-// Auto-play opcional para o carrossel (Descomente para ativar)
-/*
-setInterval(() => {
-    moveCarousel(1);
-}, 5000); // Passa o slide a cada 5 segundos
-*/
+setInterval(carrossel,2000);

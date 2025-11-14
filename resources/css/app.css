@@ -124,7 +124,6 @@ h1, h2, h3 {
 
 /* --- Seção Hero (Início) --- */
 .hero {
-    background: url('hero-bg.jpg') no-repeat center center/cover; /* Altere 'hero-bg.jpg' */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -132,7 +131,7 @@ h1, h2, h3 {
     text-align: center;
     color: var(--color-text-light);
     position: relative;
-    background-image: url('../../public/images/img3.jpeg');
+    background: url('../../public/images/img3.jpeg')no-repeat center center/cover;
 }
 
 .hero::before {
@@ -194,26 +193,36 @@ h1, h2, h3 {
 }
 
 .carousel-container {
-    overflow: hidden;
     position: relative;
     padding: 20px 0;
+    max-width: 1220px;
+    margin: 0 auto;
+    overflow: hidden;
+
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    margin: 0 auto;
+
+
+
 }
 
 .menu-card {
-    min-width: 300px; /* Largura do Card */
+    max-width: 400px; /* Largura do Card */
     flex: 0 0 auto;
-    margin: 0 15px;
+    margin: 0 10px 0 0;
     background-color: #222;
     padding: 20px;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform var(--transition-speed);
+    
+
+
 }
 
 .menu-card:hover {
@@ -397,7 +406,7 @@ h1, h2, h3 {
 
     .carousel-track {
         justify-content: flex-start; /* Alinha para começar a rolagem */
-        padding-left: 15px; /* Pequeno espaçamento inicial */
+        padding-left: 0; /* Pequeno espaçamento inicial */
     }
 
     .carousel-btn {
@@ -405,7 +414,6 @@ h1, h2, h3 {
         font-size: 1.2em;
     }
 }
-
 @media (max-width: 480px) {
     .hero h1 {
         font-size: 2em;
@@ -416,4 +424,86 @@ h1, h2, h3 {
     .galeria-grid {
         grid-template-columns: 1fr;
     }
+}
+@media (max-width: 344px) {
+
+    .carousel-container {
+    position: relative;
+    padding: 20px 0;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: blue;
+
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    margin: 0 auto;
+
+}
+
+.menu-card {
+    max-width: 320px; /* Largura do Card */
+    flex: 0 0 auto;
+    margin: 0 10px 0 0;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform var(--transition-speed);
+    
+
+
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.menu-card h3 {
+    color: var(--color-primary);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.price {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--color-text-light);
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5em;
+    transition: background-color var(--transition-speed);
+    border-radius: 50%;
+}
+
+.carousel-btn:hover {
+    background-color: var(--color-primary);
+}
+
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
 }
