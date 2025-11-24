@@ -1,3 +1,4 @@
+
 /* Importação de fonte elegante (exemplo: 'Playfair Display' para títulos) */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
 
@@ -511,4 +512,197 @@ h1, h2, h3 {
 
 .carousel-btn.prev { left: 0; }
 .carousel-btn.next { right: 0; }
+}
+
+
+/* --- Estilos para Telas de Login e Cadastro --- */
+
+.form-main {
+    min-height: calc(100vh - 120px); /* 100vh menos altura do header e footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%; /* Adiciona padding para telas pequenas */
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+.form-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85); /* Overlay escuro mais forte */
+}
+
+.form-container {
+    z-index: 10;
+    background-color: var(--color-secondary); /* Fundo escuro */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(255, 69, 0, 0.2); /* Sombra elegante laranja */
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.form-title {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.form-subtitle {
+    color: #bbb;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* --- Estilo do Formulário --- */
+.elegant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    text-align: left;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px; /* Padding para o ícone */
+    background-color: #333; /* Fundo mais escuro no input */
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input::placeholder {
+    color: #999;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+    background-color: #444;
+}
+
+/* Ícones dentro dos inputs */
+.input-group .icon {
+    position: absolute;
+    top: 40px; /* Ajusta a posição vertical */
+    left: 15px;
+    color: var(--color-primary);
+    font-size: 1em;
+}
+
+/* Botão de Envio */
+.btn-submit {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #e04000; /* Laranja um pouco mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+/* Links Adicionais */
+.form-links {
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.form-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.form-links span {
+    color: #666;
+    margin: 0 10px;
+}
+
+/* Checkbox (apenas Cadastro) */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    appearance: none;
+    background-color: #444;
+    border: 2px solid var(--color-primary);
+    height: 18px;
+    width: 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: var(--color-primary);
+}
+
+.checkbox-group input[type="checkbox"]:checked::after {
+    content: '\2713'; /* Símbolo de check */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-background);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsividade */
+@media (max-width: 550px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+
+    .form-title {
+        font-size: 1.8em;
+    }
 }

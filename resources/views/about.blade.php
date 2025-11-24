@@ -12,7 +12,7 @@
             <h2>Nosso Menu Especial</h2>
             <div class="carousel-container">
                 <div class="carousel-track" id="carousel-track">
-                    <div class="menu-card" id="menu-card"> 
+                    <div class="menu-card" id="menu-card">
                         <img src="{{asset('images/comida01.jpg')}}" alt="Prato Salmão Grelhado">
                         <h3>Salmão Grelhado</h3>
                         <p>Salmão fresco com molho de maracujá e arroz selvagem.</p>
@@ -55,7 +55,9 @@
                         <span class="price">R$ 35,00</span>
                     </div>
                 </div>
+                <a href="#" class="btn-cta cta-one">Ver Cardápio Completo</a>
             </div>
+
         </section>
 
         <section id="galeria" class="section galeria-section">
@@ -80,7 +82,7 @@
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        
+
                     </div>
                     <p>"Uma experiência gastronômica impecável! O ambiente é lindo e o Filé Mignon estava divino."</p>
                     <span class="client-name">- Ana L.</span>
