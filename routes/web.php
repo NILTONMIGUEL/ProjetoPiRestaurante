@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('about');
-});
+})->name('/');
+
 
 
 Route::get('loginCliente',function(){
@@ -13,5 +14,5 @@ Route::get('loginCliente',function(){
 
 
 Route::get('cadastrarCliente',function(){
-    return view('layouts.cadastrarCliente');
+    return view('clientes.cadastrarCliente');
 })->name('cadastrarCliente');

@@ -22,7 +22,7 @@
                 <div class="form-links">
                     <a href="#" class="link-forgot">Esqueceu a senha?</a>
                     <span>|</span>
-                    <a href="cadastro.html" class="link-register">Não tem conta? **Cadastre-se**</a>
+                    <a href="{{route('cadastrarCliente')}}" class="link-register">Não tem conta? <strong>Cadastre-se</strong></a>
                 </div>
             </form>
         </div>

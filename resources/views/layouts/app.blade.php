@@ -20,7 +20,7 @@
                     <li class="nav-item"><a href="#menu">Cardápio</a></li>
                     <li class="nav-item"><a href="#galeria">Galeria</a></li>
                     <li class="nav-item"><a href="#feedback">Feedback</a></li>
-                    <li class="nav-item"><a href="#contato">Login / Cadastrar</a></li>
+                    <li class="nav-item"><a href="{{route('loginCliente')}}">Login / Cadastrar</a></li>
                 </ul>
             </nav>
             <div class="menu-toggle" id="menu-toggle">
