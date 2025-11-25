@@ -16,3 +16,11 @@ Route::get('loginCliente',function(){
 Route::get('cadastrarCliente',function(){
     return view('clientes.cadastrarCliente');
 })->name('cadastrarCliente');
+
+
+
+
+
+Route::get('painel-admin',function(){
+    return view('adm.dashboard');
+})->name('painel-admin');
