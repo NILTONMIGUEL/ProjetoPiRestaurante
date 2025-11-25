@@ -55,7 +55,7 @@
             </div>
         </aside>
 
-        <main class="main-content" id="main-content">
+        <main class="main-content" id="main-content" id="close">
             <header class="main-header">
                 <button class="toggle-btn" id="toggle-sidebar">
                     <i class="fas fa-bars"></i>
@@ -63,7 +63,7 @@
                 <h2>Visão Geral da Gestão</h2>
             </header>
 
-            <section class="dashboard-cards">
+            <section class="dashboard-cards" id="close">
                 <div class="card card-revenue">
                     <i class="fas fa-chart-line card-icon"></i>
                     <h3>Vendas de Hoje</h3>
@@ -81,12 +81,12 @@
                 </div>
             </section>
 
-            <section class="dashboard-details">
+            <section class="dashboard-details" id="close">
                 <div class="details-chart">
                     <h3>Performance da Semana</h3>
                     <div class="chart-placeholder">Gráfico de Barras/Linhas Aqui</div>
                 </div>
-                <div class="details-table">
+                <div class="details-table" id="close">
                     <h3>Últimos Pedidos</h3>
                     <table>
                         <thead>

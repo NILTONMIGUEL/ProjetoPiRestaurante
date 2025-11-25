@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const toggleBtn = document.getElementById('toggle-sidebar');
+    const close = document.getElementById('close');
 
     // Função para alternar o estado do menu
     function toggleSidebar() {
@@ -35,9 +36,18 @@ document.addEventListener('DOMContentLoaded', function() {
              }
         });
     }
-
     // Inicializa o menu como minimizado em telas menores, mas com o toggle funcional
     if (window.innerWidth <= 992) {
-        sidebar.classList.add('collapsed');
+        //sidebar.classList.add('collapsed');
+        close.addEventListener('click',()=>{
+            if(sidebar.classList.contains('active')){
+                sidebar.classList.remove('active');
+                
+            }
+            else{
+                //sidebar.classList.toggle('active')
+            }
+            
+        });
     }
 });
