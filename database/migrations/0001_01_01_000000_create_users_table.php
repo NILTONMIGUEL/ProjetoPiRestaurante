@@ -17,6 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+
+            //criando a chave instrangeira para categoria
+            $table->unsignedBigInteger('id_categoria');
+            $table->foreign('id_categoria')->references('id')->on('categoria')->onDelete('cascade')->onUpdate('cascade');
+            
+
+
             $table->rememberToken();
             $table->timestamps();
         });
@@ -41,7 +48,8 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-    {
+    
+    {  
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');

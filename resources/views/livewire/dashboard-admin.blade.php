@@ -48,7 +48,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="#" title="Sair" class="nav-item logout">
+                <a href="{{route('logout')}}" title="Sair" class="nav-item logout">
                     <i class="fas fa-sign-out-alt"></i>
                     <span class="nav-text">Sair</span>
                 </a>
