@@ -183,192 +183,192 @@ h2, h3 {
     transform: scale(1.1);
 }
 
-/* --- Cards de Visão Geral --- */
-.dashboard-cards {
+.page-content {
+    padding: 40px 5%; /* Padding dentro do main content */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.content-header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 40px 5%;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.card {
-    background-color: var(--color-background-light);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px; /* Limite de tamanho */
+/* Botão Principal (Cadastrar) */
+.btn-cadastrar {
+    background-color: var(--color-primary);
+    color: var(--color-secondary); /* Cor escura no texto do botão */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-left: 5px solid var(--color-primary);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    align-items: center;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(255, 69, 0, 0.5);
-}
-
-.card h3 {
+.btn-cadastrar i {
+    margin-right: 10px;
     font-size: 1.2em;
-    margin-bottom: 5px;
+}
+
+.btn-cadastrar:hover {
+    background-color: #e03b00; 
+    transform: translateY(-2px);
+}
+
+/* Visualização de Mesas (Estilo V2 - Elegante) */
+.tables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.table-card {
+    background-color: var(--color-background-light); /* Usa a cor do card do seu layout */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+    border: 1px solid #333;
+}
+
+.table-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Ícone grande de mesa para destaque */
+.table-icon-large {
+    font-size: 4em;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    opacity: 0.05;
     color: var(--color-text-light);
 }
 
-.card-value {
-    font-family: 'Playfair Display', serif;
-    font-size: 2em;
-    font-weight: 700;
-    color: var(--color-primary);
-    margin-top: 10px;
-}
-
-.card-icon {
+/* Faixa de Status Lateral (Mais proeminente) */
+.table-card::before {
+    content: '';
     position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 2em;
-    color: rgba(255, 69, 0, 0.3);
+    top: 0;
+    left: 0;
+    width: 10px; 
+    height: 100%;
 }
 
-/* Posicionamento do ícone */
-.card { position: relative; }
+.status-disponivel::before { background-color: var(--status-disponivel); }
+.status-ocupado::before { background-color: var(--status-ocupado); }
+.status-limpeza::before { background-color: var(--status-limpeza); }
 
-/* --- Detalhes (Gráfico e Tabela) --- */
-.dashboard-details {
-    padding: 0 5% 40px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.details-chart, .details-table {
-    background-color: var(--color-background-light);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    flex: 1;
-    min-width: 350px;
-}
-
-.details-chart { min-height: 350px; }
-
-.details-table table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.details-table th, .details-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #333;
-}
-
-.details-table th {
-    background-color: #333;
+.table-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
     color: var(--color-primary);
 }
 
-.status {
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9em;
+.table-content p {
+    font-size: 0.95em;
+    color: #aaa;
+}
+
+/* Status Badge */
+.status-badge {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
     font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-secondary); /* Usa a cor escura do fundo */
 }
 
-.status.paid { background-color: #28a745; color: white; } /* Verde */
-.status.pending { background-color: #ffc107; color: var(--color-text-dark); } /* Amarelo */
+.status-disponivel .status-badge { background-color: var(--status-disponivel); }
+.status-ocupado .status-badge { background-color: var(--status-ocupado); }
+.status-limpeza .status-badge { background-color: var(--status-limpeza); }
 
-.chart-placeholder {
-    height: 250px;
+
+/* --- Ações (Editar, Excluir) - BOTÕES INSTANTÂNEOS --- */
+.table-actions {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px dashed var(--color-primary);
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.action-btn {
+    background-color: #333; 
+    border: none;
+    color: var(--color-text-light);
+    width: 45px; 
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+    /* 💥 CHAVE: SEM TRANSIÇÃO PARA AÇÃO IMEDIATA */
+    transition: none; 
+}
+
+.action-btn:hover {
+    transform: scale(1.15); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.btn-edit:hover {
     color: var(--color-primary);
-    margin-top: 15px;
+    background-color: #4a2700;
 }
 
-/* --- Responsividade (Media Queries) --- */
+.btn-delete:hover {
+    color: var(--status-limpeza);
+    background-color: #4a0f14;
+}
+/* Cole TODO o código CSS acima aqui, começando por .status-container */
 
-/* Mobile e Tablet (Telas Menores que 992px) */
-@media (max-width: 992px) {
 
-    /* Padrão para Sidebar Minimizado */
-    .sidebar {
-        width: var(--sidebar-width-icon);
-    }
-
-    .sidebar:hover {
-        width: var(--sidebar-width-full);
-    }
-
-    /* Alterna para a visualização expandida/recolhida no clique */
-    .sidebar.active {
-        width: var(--sidebar-width-full);
-    }
-
-    .main-header {
-        padding: 20px 5%;
-    }
-
-    .dashboard-cards {
-        justify-content: center;
-    }
-
-    .card {
-        min-width: 300px;
-    }
+.status-badge {
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    cursor: default;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-/* Mobile (Telas Menores que 768px) */
-@media (max-width: 768px) {
-
-    .sidebar {
-        position: fixed; /* Fixa o menu lateral */
-        height: 100%;
-        left: calc(var(--sidebar-width-icon) * -1); /* Esconde o menu 'fora' */
-        transition: left var(--transition-speed);
-    }
-
-    .sidebar.active {
-        left: 0;
-    }
-
-    .main-header {
-        justify-content: flex-start;
-    }
-
-    .main-header h2 {
-        font-size: 1.5em;
-    }
-
-    .dashboard-details {
-        justify-content: center;
-    }
-
-    .details-chart, .details-table {
-        min-width: 90%;
-    }
+.status-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 500px) {
-    .card {
-        max-width: 100%;
-    }
+.status-badge.verde {
+    background-color: #2ecc71;
+    border: 2px solid #27ae60;
 }
 
+.status-badge.amarelo {
+    background-color: #f39c12;
+    border: 2px solid #e67e22;
+}
 
-
-
-
-
-
-
-
-
-
+.status-badge.vermelho {
+    background-color: #e74c3c;
+    border: 2px solid #c0392b;
+}

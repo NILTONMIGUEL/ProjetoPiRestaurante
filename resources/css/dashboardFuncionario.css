@@ -1,0 +1,42 @@
+   /* Aplicando fontes globais */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        /* Garantindo a altura total e o fundo preto */
+        .dashboard-container {
+            min-height: 100vh;
+            background-color: #000000;
+        }
+
+        /* Estilo do Logo/Título */
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animação de transição suave para o menu */
+        .sidebar {
+            transition: width 0.3s ease;
+        }
+        
+        /* Estilo para a barra de rolagem (opcional, para estética dark) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF4500;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        /* Estilização para o texto escondido/mostrado no menu lateral */
+        .menu-item-text {
+            opacity: 0;
+            transition: opacity 0.1s ease;
+        }
+        @media (min-width: 1024px) { /* lg: breakpoint */
+            .sidebar:not(.collapsed) .menu-item-text {
+                opacity: 1;
+            }
+        }

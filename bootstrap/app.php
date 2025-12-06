@@ -11,7 +11,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        
+        //ativando os middlewares
+        $middleware->alias([
+            'block.fk2' => \App\Http\Middleware\blockForeignKey::class,
+            'block.pk1' => \App\Http\Middleware\blockPrimaryKey::class,
+        ]);
+
+
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
