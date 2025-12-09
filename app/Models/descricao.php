@@ -10,6 +10,10 @@ use App\Models\mesas;
 class descricao extends Model
 {
     //
+    
+    protected $fillable = [
+        'nome',
+    ]; 
 
     protected $table = 'descricao';
 

@@ -15,11 +15,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Nilton Sousa',
-            'email' => 'nilton01@gmail.com',
-            'password' => bcrypt('123456'),
-            'id_categoria' => 2,
+        // User::factory()->create([
+        //     'name' => 'Nilton Sousa',
+        //     'email' => 'nilton01@gmail.com',
+        //     'password' => bcrypt('123456'),
+        //     'id_categoria' => 2,
+        // ]);
+
+        //criando os dados sqlite3
+        $this->call([
+            CategoriaSeeder::class,
+            DescricaoSeeder::class,
+            UsuarioSeeder::class,
         ]);
+
     }
 }
