@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Variáveis e Reset Básico --- */
+:root {
+    --color-primary: #FF4500; /* Laranja Vívido */
+    --color-secondary: #121212; /* Preto Escuro do fundo */
+    --color-background-light: #222; /* Fundo dos cards/sidebar */
+    --color-text-light: #f5f5f5; /* Texto Branco/Claro */
+    --color-text-dark: #333333;
+    --transition-speed: 0.3s;
+
+    /* Cores de Status */
+    --status-disponivel: #28a745; /* Verde (Em Estoque) */
+    --status-ocupado: #ffc107; /* Amarelo (Esgotado) */
+    --status-limpeza: #dc3545; /* Vermelho (Manutenção/Desativado) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+/* ---------------------------------------------------- */
+/* --- Estilos do Modal de Edição (ADAPTADO) --- */
+/* ---------------------------------------------------- */
+
+/* Fundo escuro que cobre toda a tela */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex; /* Mantido como flex para visualização imediata, mas deve ser 'none' no ambiente real */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(3px);
+}
+
+/* Container do Modal */
+.modal-content {
+    background-color: var(--color-background-light);
+    padding: 35px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+    position: relative;
+    border: 1px solid #333;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.modal-header h3 {
+    color: var(--color-primary);
+    font-size: 2em;
+    font-family: 'Playfair Display', serif;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color var(--transition-speed);
+}
+
+.close-btn:hover {
+    color: var(--status-limpeza);
+}
+
+/* Campos do Formulário */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #ccc;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(255, 69, 0, 0.5);
+}
+
+/* Estilo elegante para o Select */
+.form-group select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 18px;
+    padding-right: 35px;
+}
+.form-group option {
+    background-color: #333;
+    color: var(--color-text-light);
+}
+
+/* Cores de Status dentro do Select */
+
+#product-status option[value= 1] { color: var(--status-disponivel); }
+#product-status option[value= 2] { color: var(--status-ocupado); }
+#product-status option[value= 3] { color: var(--status-limpeza); }
+
+
+/* Botões de Ação no Footer do Modal */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.btn-cancelar {
+    background-color: #666;
+    color: var(--color-text-light);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.btn-cancelar:hover {
+    background-color: #777;
+}
+
+.btn-salvar {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-transform: uppercase;
+}
+
+.btn-salvar i {
+    margin-right: 8px;
+}
+
+.btn-salvar:hover {
+    background-color: #e03b00; 
+    transform: translateY(-1px);
+}

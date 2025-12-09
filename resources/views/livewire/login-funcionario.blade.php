@@ -5,7 +5,7 @@
             <h2>Acesso Restrito - Admin</h2>
 
             <form action="#" method="POST" class="login-form" wire:submit='login'>
-                
+                @csrf
                 <div class="input-group">
                     <i class="fas fa-user"></i>
                     <input type="text" id="email" placeholder="email" wire:model='email' required>
@@ -21,14 +21,14 @@
             </form>
 
             <a href="#" class="forgot-password">Esqueceu sua senha?</a>
-
+            {{-- me retornando os erros do validate--}}
             @error('email')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
             @error('password')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror
-
+            {{-- me retornando o erro do flash --}}
             @if(session()->has('error'))
                 <div class="alert alert-danger">{{session()->get('error')}}</div>
             @endif

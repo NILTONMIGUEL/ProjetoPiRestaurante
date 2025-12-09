@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\admEditarMesas;
 
 Route::get('/', function () {
     return view('about');
@@ -20,14 +21,16 @@ Route::get('/admin',function(){
 })->name('login'); //<- importante ser o nome login da rota para poder funcionar o middlware
 
 
-
-
 //criando o cardapio digital
 
 Route::get('/cardapio-digital/{id}',function(){
     return view('cardapioDigital');
 })->name('cardapio.digital');
 
+
+
+
+//criando a página de editar mesas
 
 
 
@@ -46,6 +49,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/adm-cadastrarMesasModal',function(){
             return view ('adm.cadastrarMesasModal');
         })->name('adm.cadastrarMesasModal');
+
+        //criando a rota de alterar produtos
+        Route::get('/admin-editarMesas/{id}',[admEditarMesas::class, 'index'])->name('admin-editarMesas');
 
     });
 

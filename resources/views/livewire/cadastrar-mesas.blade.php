@@ -26,7 +26,7 @@
                     </div>
                         
                         <div class="table-actions">
-                            <button class="action-btn btn-edit">
+                            <button class="action-btn btn-edit" wire:click="editarMesas('{{$mesa->id}}')">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="action-btn btn-delete">
@@ -45,7 +45,7 @@
                     </div>
                         
                         <div class="table-actions">
-                            <button class="action-btn btn-edit">
+                            <button class="action-btn btn-edit" wire:click="editarMesas({{$mesa->id}})">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="action-btn btn-delete">
@@ -64,7 +64,7 @@
                     </div>
                         
                         <div class="table-actions">
-                            <button class="action-btn btn-edit">
+                            <button class="action-btn btn-edit" wire:click="editarMesas({{$mesa->id}})">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="action-btn btn-delete">

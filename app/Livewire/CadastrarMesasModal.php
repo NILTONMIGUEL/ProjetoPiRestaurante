@@ -9,19 +9,22 @@ use App\Models\mesas;
 class CadastrarMesasModal extends Component
 {
 
-
+    //método para o botão de cancelar modal
     public function cancelar_mesaModal(){
+        //retornar para a rota das mesas
         return redirect()->route('adm.cadastarMesas');
     }
 
-
+    //criando as variaveis que irão receber dados do formulario 
     public $numero;
     public $status;
 
+    //criando o método salvar
     public function salvar(){
         $this->validate([
+            //o numero da mesa é obrigatorio , unico : componente , campo do formulario
            'numero' => 'required|unique:mesas,numero',
-           'status' => 'required',
+           'status' => 'required', //requerido e campo do formulario
         ]); 
 
         mesas::create([
@@ -40,7 +43,7 @@ class CadastrarMesasModal extends Component
 
     public function render()
     {
-
+        //me retornando a minha descrição
         $descricao = descricao::all();
         return view('livewire.cadastrar-mesas-modal',[
             'descricao' => $descricao,
