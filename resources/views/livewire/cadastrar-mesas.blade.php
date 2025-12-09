@@ -19,7 +19,7 @@
                     <div class="table-card status-disponivel">
                     <i class="fas fa-couch table-icon-large"></i> 
                     <div class="table-content">
-                        <h3>Mesa {{$mesa->id}}</h3>
+                        <h3>Mesa {{$mesa->numero}}</h3>
                         <div class="status-container">
                             <div class="status-badge verde">{{$mesa->descricao->nome}}</div>
                         </div>
@@ -29,7 +29,7 @@
                             <button class="action-btn btn-edit" wire:click="editarMesas('{{$mesa->id}}')">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click="excluirMesas('{{$mesa->id}}')">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -38,7 +38,7 @@
                     <div class="table-card status-disponivel">
                     <i class="fas fa-couch table-icon-large"></i> 
                     <div class="table-content">
-                        <h3>Mesa {{$mesa->id}}</h3>
+                        <h3>Mesa {{$mesa->numero}}</h3>
                         <div class="status-container">
                             <div class="status-badge amarelo">{{$mesa->descricao->nome}}</div>
                         </div>
@@ -48,7 +48,7 @@
                             <button class="action-btn btn-edit" wire:click="editarMesas({{$mesa->id}})">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click="excluirMesas('{{$mesa->id}}')">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -57,7 +57,7 @@
                     <div class="table-card status-disponivel">
                     <i class="fas fa-couch table-icon-large"></i> 
                     <div class="table-content">
-                        <h3>Mesa {{$mesa->id}}</h3>
+                        <h3>Mesa {{$mesa->numero}}</h3>
                         <div class="status-container">
                             <div class="status-badge vermelho">{{$mesa->descricao->nome}}</div>
                         </div>
@@ -67,7 +67,7 @@
                             <button class="action-btn btn-edit" wire:click="editarMesas({{$mesa->id}})">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click="excluirMesas('{{$mesa->id}}')">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>

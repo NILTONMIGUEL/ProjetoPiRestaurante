@@ -2,7 +2,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <h3><i class="fas fa-edit"></i> Editar Mesas</h3>
-            <button class="close-btn">
+            <button class="close-btn" wire:click = "cancelar">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -31,9 +31,10 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn-cancelar">
+                <button type="button" class="btn-cancelar" wire:click = "cancelar">
                     <i class="fas fa-undo"></i> Sair
                 </button>
+                {{--estamos enviando via submit e usando o wire:model--}}
                 <button type="submit" class="btn-salvar">
                     <i class="fas fa-save"></i> Salvar
                 </button>

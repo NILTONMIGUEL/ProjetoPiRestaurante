@@ -27,14 +27,14 @@
 
                 <nav class="sidebar-nav">
                     <ul>
-                        <li class="nav-item active">
+                        <li class="nav-item {{request()->routeIs('painel-admin') ? 'active' : ''}}">
                             <a href="{{route('painel-admin')}}" title="Dashboard">
                                 <i class="fas fa-home"></i>
                                 <span class="nav-text">Dashboard</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{route('adm.cadastarMesas')}}" title="Mesas">
+                        <li class="nav-item {{request()->routeIs('adm.cadastrarMesas') ? 'active' : ''}}">
+                            <a href="{{route('adm.cadastrarMesas')}}" title="Mesas">
                                 <i class="fas fa-chair"></i>
                                 <span class="nav-text">Mesas</span>
                             </a>

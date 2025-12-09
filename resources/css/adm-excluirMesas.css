@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Variáveis e Reset Básico --- */
+:root {
+    --color-primary: #FF4500; /* Laranja Vívido */
+    --color-secondary: #121212; /* Preto Escuro do fundo */
+    --color-background-light: #222; /* Fundo dos cards/sidebar */
+    --color-text-light: #f5f5f5; /* Texto Branco/Claro */
+    --color-text-dark: #333333;
+    --transition-speed: 0.3s;
+
+    --sidebar-width-full: 250px;
+    --sidebar-width-icon: 80px;
+
+    /* Cores de Status */
+    --status-disponivel: #28a745; /* Verde */
+    --status-ocupado: #ffc107; /* Amarelo */
+    --status-limpeza: #dc3545; /* Vermelho (Usado para o Delete) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+/* Fundo Escuro */
+.modal-overlay {
+    display: none; /* Começa oculto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background-color: var(--color-background-light);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+    text-align: center;
+    border-top: 5px solid var(--status-limpeza); /* Borda vermelha de alerta */
+}
+
+.modal-content h3 {
+    color: var(--status-limpeza); /* Título em vermelho */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.modal-icon {
+    font-size: 3em;
+    color: var(--status-limpeza);
+    margin-bottom: 20px;
+}
+
+.modal-message {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    color: var(--color-text-light);
+    font-weight: 300;
+}
+
+/* Campo de Número da Mesa em Destaque */
+.table-number-display {
+    background-color: #333;
+    color: var(--color-primary); /* Número da mesa em Laranja Vívido */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.8em;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 69, 0, 0.3);
+}
+
+/* Botões de Ação do Modal */
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.btn-modal {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color var(--transition-speed);
+    flex: 1;
+}
+
+.btn-cancel {
+    background-color: #555;
+    color: var(--color-text-light);
+}
+
+.btn-cancel:hover {
+    background-color: #777;
+}
+
+.btn-confirm-delete {
+    background-color: var(--status-limpeza);
+    color: var(--color-text-light);
+}
+
+.btn-confirm-delete:hover {
+    background-color: #b02a37; /* Vermelho mais escuro */
+}

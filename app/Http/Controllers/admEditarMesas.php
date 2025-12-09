@@ -12,4 +12,18 @@ class admEditarMesas extends Controller
             'id' => $id,
         ]);
     }
+
+    public function excluir($id){
+      
+        $mesa = mesas::find($id);
+        return view ('adm.excluirMesas',[
+            'id' => $id,
+            'mesa' => $mesa,
+        ]);
+        
+    }
+
+    public function cadastrarMesas(){
+        return view('adm.cadastrarMesas');
+    }
 }

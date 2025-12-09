@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/adm-cadastrarMesas',function(){
             return view('adm.cadastrarMesas');
-        })->name('adm.cadastarMesas');
+        })->name('adm.cadastrarMesas');
 
         Route::get('/adm-cadastrarMesasModal',function(){
             return view ('adm.cadastrarMesasModal');
@@ -52,6 +52,12 @@ Route::middleware('auth')->group(function () {
 
         //criando a rota de alterar produtos
         Route::get('/admin-editarMesas/{id}',[admEditarMesas::class, 'index'])->name('admin-editarMesas');
+
+        //criando a rota para excluir o item do banco de dados
+        Route::get('/admin-excluirMesas/{id}',[admEditarMesas::class , 'excluir'])->name('admin-excluirMesas');
+
+        //criando a rota de cancelar a alteração
+        Route::get('/admin-cancelarExclusao',[admEditarMesas::class , 'cadastrarMesas'])->name('admin-cadastrarMesas');
 
     });
 

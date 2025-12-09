@@ -49,7 +49,7 @@ class EditarMesas extends Component
         //se não existe 
         if(!$mesaParaEditar){
             session()->flash('error', 'Mesa não encontrada para edição.');
-            return redirect()->route('adm.cadastarMesas');
+            return redirect()->route('adm.cadastrarMesas');
         }
        
         // 4. ATUALIZAR as propriedades do objeto Model
@@ -60,9 +60,13 @@ class EditarMesas extends Component
         $mesaParaEditar->save(); 
         
         // 6. Redirecionar
-        return redirect()->route('adm.cadastarMesas')->with('success','Mesa editada com sucesso!');
+        return redirect()->route('adm.cadastrarMesas')->with('success','Mesa editada com sucesso!');
     }
     
+    public function cancelar(){
+        return redirect()->route('adm.cadastrarMesas');
+    }
+
     public function render()
     {
         $mesas = mesas::where('id', $this->idMesa)->first();

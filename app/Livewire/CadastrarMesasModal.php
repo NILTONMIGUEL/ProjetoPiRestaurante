@@ -12,7 +12,7 @@ class CadastrarMesasModal extends Component
     //método para o botão de cancelar modal
     public function cancelar_mesaModal(){
         //retornar para a rota das mesas
-        return redirect()->route('adm.cadastarMesas');
+        return redirect()->route('adm.cadastrarMesas');
     }
 
     //criando as variaveis que irão receber dados do formulario 
@@ -37,7 +37,7 @@ class CadastrarMesasModal extends Component
 
         session()->flash('message', 'cadastro salvo com sucesso!');
         
-        return redirect()->route('adm.cadastarMesas');
+        return redirect()->route('adm.cadastrarMesas');
     }
     
 

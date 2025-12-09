@@ -372,3 +372,69 @@ h2, h3 {
     background-color: #e74c3c;
     border: 2px solid #c0392b;
 }
+/* Mobile e Tablet (Telas Menores que 992px) */
+@media (max-width: 992px) {
+
+    /* Padrão para Sidebar Minimizado */
+    .sidebar {
+        width: var(--sidebar-width-icon);
+    }
+
+    .sidebar:hover {
+        width: var(--sidebar-width-full);
+    }
+
+    /* Alterna para a visualização expandida/recolhida no clique */
+    .sidebar.active {
+        width: var(--sidebar-width-full);
+    }
+
+    .main-header {
+        padding: 20px 5%;
+    }
+
+    .dashboard-cards {
+        justify-content: center;
+    }
+
+    .card {
+        min-width: 300px;
+    }
+}
+
+/* Mobile (Telas Menores que 768px) */
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: fixed; /* Fixa o menu lateral */
+        height: 100%;
+        left: calc(var(--sidebar-width-icon) * -1); /* Esconde o menu 'fora' */
+        transition: left var(--transition-speed);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-header {
+        justify-content: flex-start;
+    }
+
+    .main-header h2 {
+        font-size: 1.5em;
+    }
+
+    .dashboard-details {
+        justify-content: center;
+    }
+
+    .details-chart, .details-table {
+        min-width: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        max-width: 100%;
+    }
+}
