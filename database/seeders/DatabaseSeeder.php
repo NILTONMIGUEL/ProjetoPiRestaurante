@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         //criando os dados sqlite3
         $this->call([
             CategoriaSeeder::class,
+            CargosSeeder::class,
             DescricaoSeeder::class,
             UsuarioSeeder::class,
         ]);

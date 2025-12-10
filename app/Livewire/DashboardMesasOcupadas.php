@@ -8,12 +8,12 @@ use App\Models\mesas;
 class DashboardMesasOcupadas extends Component
 {
     //criando a variavel para mostrar as mesas disponiveis 
-    public $mesasDisponivel;
+    public $mesasOcupadas;
 
     //método mount é executado automaticamente quando o componente é iniciado
     public function mount(){
         //guardando a quantidade de messas com id 1
-        $this->mesasDisponivel = mesas::where('id_descricao', 1)->count();
+        $this->mesasOcupadas = mesas::where('id_descricao', 2)->count();
     }
 
 

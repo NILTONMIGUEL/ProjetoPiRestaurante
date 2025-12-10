@@ -59,6 +59,11 @@ Route::middleware('auth')->group(function () {
         //criando a rota de cancelar a alteração
         Route::get('/admin-cancelarExclusao',[admEditarMesas::class , 'cadastrarMesas'])->name('admin-cadastrarMesas');
 
+        //criando a rota de funcionarios
+        Route::get('/admin-funcionarios',function(){
+            return view('adm.Funcionarios');
+        })->name('admin-funcionarios');
+
     });
 
     Route::middleware('block.pk1')->group(function(){

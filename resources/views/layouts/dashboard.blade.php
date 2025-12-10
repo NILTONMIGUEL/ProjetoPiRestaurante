@@ -13,6 +13,9 @@
             @vite(['resources/css/admin-dashboard.css', 'resources/js/adm-dashboard.js'])
         @elseif(Request::is('adm-cadastrarMesas'))
             @vite(['resources/css/adm-cadastrar-mesas.css', 'resources/js/adm-dashboard.js'])
+
+        @elseif(Request::is('admin-funcionarios'))
+            @vite(['resources/css/adm-funcionarios.css', 'resources/js/adm-dashboard.js'])
         @endif
 
     </head>
@@ -46,7 +49,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" title="Funcionários">
+                            <a href="{{route('admin-funcionarios')}}" title="Funcionários">
                                 <i class="fas fa-user-tie"></i>
                                 <span class="nav-text">Funcionários</span>
                             </a>

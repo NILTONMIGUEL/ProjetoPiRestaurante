@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use App\Models\Categoria;
+use App\Models\Cargos;
 
 class User extends Authenticatable
 {
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'email',
         'password',
         'id_categoria',
+        'id_cargo',
     ];
 
     /**
@@ -52,6 +54,12 @@ class User extends Authenticatable
     public function categoria()
     {
         // Um usuário pertence a UMA categoria
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class , 'id_categoria');
+    }
+
+    public function cargos(){
+
+        //um cargo tem apenas um funcionarios
+        return $this->belongsTo(Cargos::class, 'id_cargo');
     }
 }

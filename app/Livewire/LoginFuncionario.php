@@ -24,13 +24,20 @@ class LoginFuncionario extends Component
         $autenticated = Auth::attempt([
             'email' => $this->email,
             'password' => $this->password,
-            'id_categoria' => [1 , 2] 
+            'id_categoria' => [1 , 2],
+            'id_cargo' => [1,2,3,4],
         ]);
 
         //caso for true 
         if($autenticated){
             //me retorne a rota painel-admin
-            return redirect()->route('painel-admin');
+           if(in_array(Auth::user()->{'id_cargo'},[1,2])){
+                
+                return redirect()->route('funcionario.painel')->with('error', 'Acesso negado Só os ADM tem acesso.');
+            }
+           else if(in_array(Auth::user()->{'id_cargo'},[3,4])){
+                return redirect()->route('painel-admin')->with('error', 'Acesso negado Só os ADM tem acesso.');
+           }
         }
         else{
             //caso de erro me retorne uma mensagem de erro

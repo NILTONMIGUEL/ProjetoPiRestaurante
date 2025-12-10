@@ -23,10 +23,11 @@ class blockForeignKey
 
         if(Auth::check()){
 
-            $chaveEstrangeira = 'id_categoria';
+           $cargo = [1,2];
 
-            if(Auth::user()->{$chaveEstrangeira} == 2){
-                return redirect()->route('funcionario.painel')->with('error', 'Acesso negado Só os ADM tem acesso.');
+            if(in_array(Auth::user()->{'id_cargo'},$cargo)){
+                 return redirect()->route('funcionario.painel')->with('error', 'Acesso negado Só os ADM tem acesso.');
+                
             }
             
         }

@@ -17,9 +17,12 @@ class blockPrimaryKey
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::check()){
-            $id_categoria = 'id_categoria';
-            if(Auth::user()->{$id_categoria} == 1){
-                return redirect()->route('painel-admin')->with('error', 'Acesso negado Só os funcionarios tem acesso.');
+          
+            $cargo = [3,4];
+
+            if(in_array(Auth::user()->{'id_cargo'}, $cargo)){
+                 return redirect()->route('painel-admin')->with('error', 'Acesso negado Só os funcionarios tem acesso.');
+            
             }
         }
 

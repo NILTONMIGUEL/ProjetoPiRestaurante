@@ -21,7 +21,10 @@ return new class extends Migration
             //criando a chave instrangeira para categoria
             $table->unsignedBigInteger('id_categoria');
             $table->foreign('id_categoria')->references('id')->on('categoria')->onDelete('cascade')->onUpdate('cascade');
-            
+
+            //criando referencias com a tabela cargos
+            $table->unsignedBigInteger('id_cargo');
+            $table->foreign('id_cargo')->references('id')->on('cargos')->onDelete('cascade')->onUpdate('cascade');            
 
 
             $table->rememberToken();

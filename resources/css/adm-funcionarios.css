@@ -1,0 +1,419 @@
+/* Importação de fonte elegante */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Variáveis e Reset Básico --- */
+:root {
+    --color-primary: #FF4500; /* Laranja Vívido */
+    --color-secondary: #121212; /* Preto Escuro do fundo */
+    --color-background-light: #222; /* Fundo dos cards/sidebar */
+    --color-text-light: #f5f5f5; /* Texto Branco/Claro */
+    --color-text-dark: #333333;
+    --transition-speed: 0.3s;
+
+    --sidebar-width-full: 250px;
+    --sidebar-width-icon: 80px;
+
+    /* Cores de Status/Funções (Novas) */
+    --role-gerente: #28a745; /* Verde - Gerente */
+    --role-garcom: #007bff; /* Azul - Garçom */
+    --role-cozinha: #ffc107; /* Amarelo - Cozinha */
+    --role-admin: #dc3545; /* Vermelho - Admin/Caixa */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+}
+
+/* --- Layout Principal --- */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar (Menu Lateral) --- */
+.sidebar {
+    width: var(--sidebar-width-full);
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: width var(--transition-speed) ease-in-out;
+    overflow-x: hidden; /* Importante para o efeito de recolher */
+    z-index: 100;
+
+}
+
+/* Estado Minimizado */
+.sidebar.collapsed {
+    width: var(--sidebar-width-icon);
+}
+
+/* Header/Logo */
+.sidebar-header {
+    text-align: center;
+    padding: 0 10px 0px;
+    border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+    margin-bottom: 50px;
+}
+
+.logo-full, .logo-min {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.8em;
+    letter-spacing: 2px;
+    transition: opacity var(--transition-speed);
+}
+
+.sidebar.collapsed .logo-full { display: none; }
+.logo-full { display: block; }
+.sidebar.collapsed .logo-min { display: block; }
+.logo-min { display: none; font-size: 1.5em; }
+
+
+/* Navegação */
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: 400;
+    white-space: nowrap;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.nav-item a:hover {
+    background-color: rgba(255, 69, 0, 0.1);
+    color: var(--color-primary);
+    border-left: 5px solid var(--color-primary);
+}
+
+.nav-item.active a {
+    background-color: rgba(255, 69, 0, 0.2);
+    color: var(--color-primary);
+    border-left: 5px solid var(--color-primary);
+}
+
+.nav-item i {
+    font-size: 1.4em;
+    min-width: 40px; /* Garante que os ícones fiquem alinhados */
+    text-align: center;
+}
+
+.nav-text {
+    margin-left: 10px;
+    opacity: 1;
+    transition: opacity var(--transition-speed);
+}
+
+/* Esconder texto no modo recolhido */
+.sidebar.collapsed .nav-text {
+    opacity: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+/* Rodapé/Sair */
+.sidebar-footer {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 69, 0, 0.2);
+}
+.sidebar-footer > .nav-item {
+    color:white;
+}
+.sidebar-footer > .nav-item:hover {
+    background-color: rgba(255, 69, 0, 0.1);
+    color: var(--color-primary);
+    border-left: 5px solid var(--color-primary);
+}
+
+/* --- Conteúdo Principal (Main Content) --- */
+.main-content {
+    flex-grow: 1;
+    padding: 0; /* O header e as seções terão seu próprio padding */
+    transition: margin-left var(--transition-speed) ease-in-out;
+}
+
+/* Header do Conteúdo Principal */
+.main-header {
+    background-color: var(--color-background-light);
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.main-header h2 {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+    font-size: 1.8em;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform var(--transition-speed);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+.page-content {
+    padding: 40px 5%; /* Padding dentro do main content */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+/* --- Conteúdo Principal (Main Content) --- */
+.main-content {
+    flex-grow: 1;
+    padding: 0;
+    transition: margin-left var(--transition-speed) ease-in-out;
+}
+
+/* Header do Conteúdo Principal */
+.main-header {
+    background-color: var(--color-background-light);
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.main-header h2 {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+    font-size: 1.8em;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform var(--transition-speed);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ---------------------------------------------------- */
+/* --- Estilos da Tela de Gestão de Funcionários (NOVA) --- */
+/* ---------------------------------------------------- */
+
+.page-content {
+    padding: 40px 5%; /* Padding dentro do main content */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Botão Principal (Cadastrar) */
+.btn-cadastrar {
+    background-color: var(--color-primary);
+    color: var(--color-secondary); /* Cor escura no texto do botão */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-cadastrar i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.btn-cadastrar:hover {
+    background-color: #e03b00; 
+    transform: translateY(-2px);
+}
+
+/* Visualização dos Funcionários (Grid de Cards) */
+.employees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.employee-card {
+    background-color: var(--color-background-light);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Cabeçalho do Card (Com cor da função) */
+.card-header-role {
+    padding: 25px 30px;
+    color: var(--color-secondary);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+.role-gerente .card-header-role { background-color: var(--role-gerente); }
+.role-garcom .card-header-role { background-color: var(--role-garcom); }
+.role-cozinha .card-header-role { background-color: var(--role-cozinha); }
+.role-admin .card-header-role { background-color: var(--role-admin); }
+
+.card-header-role h3 {
+    margin: 0;
+    font-size: 1.6em;
+    color:var(--color-secondary);
+}
+
+.card-header-role p {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* Foto/Ícone de Perfil */
+.profile-icon {
+    font-size: 3.5em;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--color-background-light);
+    text-align: center;
+    position: absolute;
+    bottom: -40px; 
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid var(--color-background-light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Conteúdo Principal do Card */
+.card-body {
+    padding: 50px 30px 20px; /* Mais padding no topo para o ícone */
+    flex-grow: 1;
+}
+
+.card-info {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.card-info li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #ccc;
+}
+
+.card-info li i {
+    margin-right: 10px;
+    color: var(--color-primary);
+    font-size: 1.1em;
+}
+
+/* Ações (Editar, Excluir) - BOTÕES INSTANTÂNEOS */
+.employee-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 15px 30px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.action-btn {
+    background-color: #333; 
+    border: none;
+    color: var(--color-text-light);
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+    /* SEM TRANSIÇÃO PARA AÇÃO IMEDIATA */
+    transition: none; 
+}
+
+.action-btn:hover {
+    transform: scale(1.15); 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+}
+
+.btn-edit:hover {
+    color: var(--color-primary);
+    background-color: #4a2700;
+}
+
+.btn-delete:hover {
+    color: var(--role-admin); /* Usa a cor de alerta */
+    background-color: #4a0f14;
+}
