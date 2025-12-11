@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Variáveis e Reset Básico --- */
+:root {
+    --color-primary: #FF4500; /* Laranja Vívido */
+    --color-secondary: #121212; /* Preto Escuro do fundo */
+    --color-background-light: #222; /* Fundo dos cards/sidebar */
+    --color-text-light: #f5f5f5; /* Texto Branco/Claro */
+    --color-text-dark: #333333;
+    --transition-speed: 0.3s;
+
+    --sidebar-width-full: 250px;
+    --sidebar-width-icon: 80px;
+
+    /* Cor de Perigo/Exclusão */
+    --color-danger: #dc3545; /* Vermelho Padrão */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ---------------------------------------------------- */
+/* --- Layout Principal e Headers (Mantidos) --- */
+/* ---------------------------------------------------- */
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar (Simplificada para este exemplo) --- */
+.sidebar {
+    width: var(--sidebar-width-full);
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    transition: width var(--transition-speed) ease-in-out;
+    overflow-x: hidden;
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+.main-content { flex-grow: 1; padding: 0; }
+.main-header {
+    background-color: var(--color-background-light);
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+.main-header h2 { color: var(--color-text-light); font-size: 1.8em; flex-grow: 1; text-align: left; }
+.toggle-btn { background: none; border: none; color: var(--color-primary); font-size: 1.5em; cursor: pointer; margin-right: 20px; transition: transform var(--transition-speed); }
+
+/* Conteúdo da Página */
+.page-content {
+    padding: 40px 5%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ---------------------------------------------------- */
+/* --- Estilos do Formulário de Confirmação (NOVO) --- */
+/* ---------------------------------------------------- */
+
+.confirmation-container {
+    max-width: 650px; /* Um pouco mais largo para acomodar o texto de aviso */
+    margin: 50px auto;
+    background-color: var(--color-background-light);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--color-danger); /* Borda vermelha de perigo */
+}
+
+.confirmation-container h2 {
+    color: var(--color-danger); /* Título em vermelho */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation-container h2 i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.alert-message {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--color-text-light);
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(220, 53, 69, 0.1); /* Fundo sutil de alerta */
+}
+
+/* Estilos de Input (Somente Leitura) */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--color-text-light);
+    font-size: 1em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--color-text-light);
+    font-size: 1em;
+}
+
+/* Estilo específico para inputs readonly (mais óbvio) */
+.form-group input:read-only {
+    background-color: #1a1a1a; /* Fundo muito escuro */
+    border-color: #444;
+    color: #ccc;
+    cursor: default;
+}
+
+/* Botões de Ação (Confirmar e Cancelar) */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.btn-confirm, .btn-cancel {
+    flex-grow: 1;
+    width: 50%;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Botão Confirmar (Vermelho de Perigo) */
+.btn-confirm {
+    background-color: var(--color-danger); /* Cor Vermelha */
+    color: var(--color-text-light); 
+}
+.btn-confirm:hover {
+    background-color: #a71d2a; 
+    transform: translateY(-2px);
+}
+
+/* Botão Cancelar (Cinza/Neutro) */
+.btn-cancel {
+    background-color: #555; 
+    color: var(--color-text-light);
+}
+.btn-cancel:hover {
+    background-color: #777; 
+    transform: translateY(-2px);
+}
+
+/* MEDIA QUERIES (Responsividade básica para botões) */
+@media (max-width: 600px) {
+    .form-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .btn-confirm, .btn-cancel {
+        width: 100%;
+    }
+}

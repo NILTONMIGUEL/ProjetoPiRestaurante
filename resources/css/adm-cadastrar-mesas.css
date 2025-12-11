@@ -50,9 +50,17 @@ h2, h3 {
     transition: width var(--transition-speed) ease-in-out;
     overflow-x: hidden; /* Importante para o efeito de recolher */
     z-index: 100;
+    
 
 }
-
+/* Seu CSS atual */
+.sidebar {
+    /* ... outras propriedades ... */
+    z-index: 1000;
+    position: sticky; /* JÁ ESTÁ AQUI */
+    top: 0;           /* JÁ ESTÁ AQUI */
+    height: 100vh;
+}
 /* Estado Minimizado */
 .sidebar.collapsed {
     width: var(--sidebar-width-icon);

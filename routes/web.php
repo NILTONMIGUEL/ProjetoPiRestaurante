@@ -30,7 +30,34 @@ Route::get('/cardapio-digital/{id}',function(){
 
 
 
-//criando a página de editar mesas
+
+###Funcionarios####
+
+
+//criando a rota de cadastrar funcionarios
+Route::get('admin-cadastrarFuncionarios',function(){
+    return view('adm.telaCadastrarFuncionario');
+})->name('admin-cadastrarFuncionarios');
+
+//criando a rota de editar funcionario
+Route::get('/admin-editarFuncionario',function(){
+    return view('adm.telaEditarFuncionario');
+})->name('admin-editarFuncionario');
+
+//criando a rota de excluir funcionario
+Route::get('/admin-excluirFuncionario',function(){
+    return view('adm.telaExcluirFuncionario');
+})->name('admin-excluirFuncionario');
+
+
+
+
+
+
+
+
+
+
 
 
 
