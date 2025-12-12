@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admEditarMesas;
+use App\Http\Controllers\FuncionariosController;
+
+
 
 Route::get('/', function () {
     return view('about');
@@ -34,15 +37,10 @@ Route::get('/cardapio-digital/{id}',function(){
 ###Funcionarios####
 
 
-//criando a rota de cadastrar funcionarios
-Route::get('admin-cadastrarFuncionarios',function(){
-    return view('adm.telaCadastrarFuncionario');
-})->name('admin-cadastrarFuncionarios');
+
 
 //criando a rota de editar funcionario
-Route::get('/admin-editarFuncionario',function(){
-    return view('adm.telaEditarFuncionario');
-})->name('admin-editarFuncionario');
+Route::get('/admin-editarFuncionario/{id?}',[FuncionariosController::class, 'editarFuncionario'])->name('admin-editarFuncionario');
 
 //criando a rota de excluir funcionario
 Route::get('/admin-excluirFuncionario',function(){
@@ -90,6 +88,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin-funcionarios',function(){
             return view('adm.Funcionarios');
         })->name('admin-funcionarios');
+
+        //criando a rota de cadastrar funcionarios
+        Route::get('admin-cadastrarFuncionarios',function(){
+            return view('adm.telaCadastrarFuncionario');
+        })->name('admin-cadastrarFuncionarios');
 
     });
 

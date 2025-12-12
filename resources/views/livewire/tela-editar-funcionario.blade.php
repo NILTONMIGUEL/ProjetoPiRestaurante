@@ -4,37 +4,37 @@
         
         <h2><i class="fas fa-user-edit"></i> Editar Funcionário</h2>
         
-        <form action="#" method="POST">
-            
+        <form wire:submit ="editar">
+            @csrf
             <div class="form-group">
                 <label for="nome"><i class="fas fa-user-circle"></i> Nome Completo</label>
-                <input type="text" id="nome" name="nome" value="Mariana Mendes" required>
+                <input type="text" id="nome" name="nome" value="{{$funcionario->name}}" wire:model="nome" required>
             </div>
 
             <div class="form-group">
                 <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                <input type="email" id="email" name="email" value="mariana@saborcharme.com" required>
+                <input type="email" id="email" name="email" value="{{$funcionario->email}}" wire:model="email" required>
             </div>
 
             <div class="form-group">
                 <label for="senha"><i class="fas fa-lock"></i> Nova Senha (Opcional)</label>
-                <input type="password" id="senha" name="senha" placeholder="Deixe vazio para manter a senha atual">
+                <input type="password" id="senha" name="senha" placeholder="Deixe vazio para manter a senha atual" wire:model="senha">
             </div>
 
             <div class="form-group">
                 <label for="cargo"><i class="fas fa-briefcase"></i> Cargo</label>
-                <select id="cargo" name="cargo" required>
-                    <option value="" disabled>Selecione o cargo...</option>
-                    <option value="1">1 - Administrador</option>
-                    <option value="2">2 - Gerente</option>
-                    <option value="3" selected>3 - Garçom/Atendente</option> 
-                    <option value="4">4 - Cozinheiro</option>
+                <select id="cargo" name="cargo" wire:model="cargo" value="" required>
+                    <option value="" >{{$funcionario->cargos->nome}} Função atual</option>
+                    @foreach($cargos as $cargo)
+                        <option value={{$cargo->id}}>{{$cargo->nome}}</option>
+
+                    @endforeach
                 </select>
             </div>
 
             <div class="form-actions">
                 
-                <a href="#" onclick="alert('Edição Cancelada. Retornando à lista.');" class="btn-cancel">
+                <a href="{{route("admin-funcionarios")}}" class="btn-cancel">
                     <i class="fas fa-times-circle">&nbsp&nbsp</i> Cancelar
                 </a>
 

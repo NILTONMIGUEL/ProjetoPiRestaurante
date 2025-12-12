@@ -5,9 +5,9 @@
         <div class="content-header">
             <h2 style="color: var(--color-primary);">Equipe Sabor & Charme</h2>
             
-            <button class="btn-cadastrar" onclick="alert('Funcionalidade: Cadastrar Novo Funcionário')">
+            <a href="{{route('admin-cadastrarFuncionarios')}}" class="btn-cadastrar" style="text-decoration: none">
                 <i class="fas fa-user-plus"></i> Cadastrar Funcionário
-            </button>
+            </a>
         </div>
            
         <div class="employees-grid">
@@ -26,7 +26,7 @@
                             </ul>
                         </div>
                         <div class="employee-actions">
-                            <button class="action-btn btn-edit" >
+                            <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})'>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="action-btn btn-delete">
@@ -48,7 +48,7 @@
                             </ul>
                         </div>
                         <div class="employee-actions">
-                            <button class="action-btn btn-edit">
+                            <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})'>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="action-btn btn-delete">
@@ -72,7 +72,7 @@
                             </ul>
                         </div>
                         <div class="employee-actions">
-                            <button class="action-btn btn-edit" >
+                            <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})'>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                             <button class="action-btn btn-delete">

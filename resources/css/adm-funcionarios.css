@@ -425,6 +425,38 @@ h2, h3 {
     color: var(--role-admin); /* Usa a cor de alerta */
     background-color: #4a0f14;
 }
+/* --- Responsividade (Media Queries) --- */
+
+/* Mobile e Tablet (Telas Menores que 992px) */
+@media (max-width: 992px) {
+
+    /* Padrão para Sidebar Minimizado */
+    .sidebar {
+        width: var(--sidebar-width-icon);
+    }
+
+    .sidebar:hover {
+        width: var(--sidebar-width-full);
+    }
+
+    /* Alterna para a visualização expandida/recolhida no clique */
+    .sidebar.active {
+        width: var(--sidebar-width-full);
+    }
+
+    .main-header {
+        padding: 20px 5%;
+    }
+
+    .dashboard-cards {
+        justify-content: center;
+    }
+
+    .card {
+        min-width: 300px;
+    }
+}
+
 /* Mobile (Telas Menores que 768px) */
 @media (max-width: 768px) {
 
@@ -461,3 +493,4 @@ h2, h3 {
         max-width: 100%;
     }
 }
+
