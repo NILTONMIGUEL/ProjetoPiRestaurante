@@ -31,28 +31,6 @@ Route::get('/cardapio-digital/{id}',function(){
 })->name('cardapio.digital');
 
 
-//PRODUTOS
-Route::get('/admin-produtos',function(){
-    return view('adm.visualizarProdutos');
-})->name('admin-produtos');
-
-Route::get('/admin-cadastrarProdutos',function(){
-    return view('adm.cadastrarProdutos');
-})->name('admin-cadastrarProdutos');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //fazendo só logar se for autenticado
 Route::middleware('auth')->group(function () {
@@ -94,6 +72,15 @@ Route::middleware('auth')->group(function () {
 
         //criando a rota de excluir funcionario
         Route::get('/admin-excluirFuncionario/{id}',[FuncionariosController::class, 'excluirFuncionario'])->name('admin-excluirFuncionario');
+        //PRODUTOS
+        Route::get('/admin-produtos',function(){
+            return view('adm.visualizarProdutos');
+        })->name('admin-produtos');
+
+        Route::get('/admin-cadastrarProdutos',function(){
+            return view('adm.cadastrarProdutos');
+        })->name('admin-cadastrarProdutos');
+
 
 
 

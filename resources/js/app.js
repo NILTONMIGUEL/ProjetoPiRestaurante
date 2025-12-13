@@ -1,3 +1,5 @@
+
+import './bootstrap';
 // 1. Funcionalidade de Toggle do Menu de Navegação (Responsividade)
 document.getElementById('menu-toggle').addEventListener('click', function() {
     const nav = document.querySelector('.nav');

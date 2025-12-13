@@ -6,7 +6,7 @@
     <title>Cadastro - Sabor & Charme</title>
     @livewireStyles
     @stack('style')
-    @vite(['resources/css/loginCliente.css', 'resources/js/app.js'])
+    @vite(['resources/css/loginCliente.css', 'resources/js/app01.js'])
 <body>
     <header class="header">
         <div class="logo">Sabor & Charme</div>

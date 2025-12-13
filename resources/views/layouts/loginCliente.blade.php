@@ -7,7 +7,7 @@
 
     @livewireStyles
     @stack('style')
-    @vite(['resources/css/loginCliente.css', 'resources/js/app.js'])
+    @vite(['resources/css/loginCliente.css', 'resources/js/app01.js'])
  </head>
 <body>
     <header class="header">

@@ -56,7 +56,13 @@ h2, h3 {
     z-index: 100;
 
 }
-
+.sidebar {
+    /* ... outras propriedades ... */
+    z-index: 1000;
+    position: sticky; /* JÁ ESTÁ AQUI */
+    top: 0;           /* JÁ ESTÁ AQUI */
+    height: 100vh;
+}
 /* Estado Minimizado */
 .sidebar.collapsed {
     width: var(--sidebar-width-icon);
