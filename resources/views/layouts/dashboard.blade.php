@@ -16,7 +16,11 @@
 
         @elseif(Request::is('admin-funcionarios'))
             @vite(['resources/css/adm-funcionarios.css', 'resources/js/adm-dashboard.js'])
+        @elseif(Request::is('admin-produtos'))
+            @vite(['resources/css/admin-dashboard.css', 'resources/js/adm-dashboard.js'])
         @endif
+
+
 
     </head>
     <body>
@@ -42,8 +46,8 @@
                                 <span class="nav-text">Mesas</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" title="Produtos">
+                        <li class="nav-item {{request()->routeIs('admin-produtos') ? 'active' : ''}}">
+                            <a href="{{route('admin-produtos')}}" title="Produtos">
                                 <i class="fas fa-utensils"></i>
                                 <span class="nav-text">Produtos</span>
                             </a>

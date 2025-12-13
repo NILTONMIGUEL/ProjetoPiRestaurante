@@ -31,19 +31,16 @@ Route::get('/cardapio-digital/{id}',function(){
 })->name('cardapio.digital');
 
 
+//PRODUTOS
+Route::get('/admin-produtos',function(){
+    return view('adm.visualizarProdutos');
+})->name('admin-produtos');
+
+Route::get('/admin-cadastrarProdutos',function(){
+    return view('adm.cadastrarProdutos');
+})->name('admin-cadastrarProdutos');
 
 
-
-###Funcionarios####
-
-
-
-
-//criando a rota de editar funcionario
-Route::get('/admin-editarFuncionario/{id?}',[FuncionariosController::class, 'editarFuncionario'])->name('admin-editarFuncionario');
-
-//criando a rota de excluir funcionario
-Route::get('/admin-excluirFuncionario/{id}',[FuncionariosController::class, 'excluirFuncionario'])->name('admin-excluirFuncionario');
 
 
 
@@ -91,6 +88,14 @@ Route::middleware('auth')->group(function () {
         Route::get('admin-cadastrarFuncionarios',function(){
             return view('adm.telaCadastrarFuncionario');
         })->name('admin-cadastrarFuncionarios');
+
+        //criando a rota de editar funcionario
+        Route::get('/admin-editarFuncionario/{id?}',[FuncionariosController::class, 'editarFuncionario'])->name('admin-editarFuncionario');
+
+        //criando a rota de excluir funcionario
+        Route::get('/admin-excluirFuncionario/{id}',[FuncionariosController::class, 'excluirFuncionario'])->name('admin-excluirFuncionario');
+
+
 
     });
 
