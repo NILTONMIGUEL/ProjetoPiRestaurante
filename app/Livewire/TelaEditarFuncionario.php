@@ -49,11 +49,19 @@ class TelaEditarFuncionario extends Component
             session()->flash('erro','funcionario não encontrado');
             return redirect()->route('admin-funcionarios');
         }
-
-        $usuarioEditar->name = $this->nome;
-        $usuarioEditar->email = $this->email;
-        $usuarioEditar->password = bcrypt($this->senha);
-        $usuarioEditar->id_cargo = $this->cargo;
+        
+        if(empty($this->senha)){
+            $usuarioEditar->name = $this->nome;
+            $usuarioEditar->email = $this->email;
+            $usuarioEditar->id_cargo = $this->cargo;
+        }
+        else{
+            $usuarioEditar->name = $this->nome;
+            $usuarioEditar->email = $this->email;
+            $usuarioEditar->password = bcrypt($this->senha);
+            $usuarioEditar->id_cargo = $this->cargo;
+        }
+        
 
         $usuarioEditar->save();
         return redirect()->route('admin-funcionarios');

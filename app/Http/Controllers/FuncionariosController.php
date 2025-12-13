@@ -12,4 +12,11 @@ class FuncionariosController extends Controller
             'id' => $id,
         ]);
     }
+
+    public function excluirFuncionario($id){
+        return view('adm.telaExcluirFuncionario',[
+            'id' => $id,
+        ]);
+    }
+     
 }

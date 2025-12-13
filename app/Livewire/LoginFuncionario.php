@@ -5,12 +5,20 @@ namespace App\Livewire;
 use Livewire\Component;
 //importando a biblioteca Auth
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class LoginFuncionario extends Component
 {
 
    public $email; //criando as variaveis para guardar os dados do formulario 
    public $password;
+
+   public function mount(){
+        if (User::count() === 0) {
+            DB::statement("DELETE FROM sqlite_sequence WHERE name = 'users'");
+        }
+   }
 
     public function login(){ //método login 
 

@@ -13,6 +13,11 @@ class Funcionarios extends Component
         return redirect()->route('admin-editarFuncionario',$id);
     }
 
+
+    public function excluirFuncionario($id){
+        
+        return redirect()->route('admin-excluirFuncionario',$id);
+    }
     public function render()
     {
         $funcionarios = User::orderBy('id_cargo', 'asc')->paginate(20);

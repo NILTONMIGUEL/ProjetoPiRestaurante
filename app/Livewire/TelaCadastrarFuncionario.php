@@ -16,6 +16,8 @@ class TelaCadastrarFuncionario extends Component
 
     public function cadastrar(){
          
+       
+    
         $this->validate([
             'nome' => 'required',
             'email' => 'required|email|unique:users,email',

@@ -43,9 +43,7 @@ Route::get('/cardapio-digital/{id}',function(){
 Route::get('/admin-editarFuncionario/{id?}',[FuncionariosController::class, 'editarFuncionario'])->name('admin-editarFuncionario');
 
 //criando a rota de excluir funcionario
-Route::get('/admin-excluirFuncionario',function(){
-    return view('adm.telaExcluirFuncionario');
-})->name('admin-excluirFuncionario');
+Route::get('/admin-excluirFuncionario/{id}',[FuncionariosController::class, 'excluirFuncionario'])->name('admin-excluirFuncionario');
 
 
 

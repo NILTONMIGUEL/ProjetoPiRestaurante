@@ -29,7 +29,7 @@
                             <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})'>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click = "excluirFuncionario({{$funcionario->id}})">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -51,7 +51,7 @@
                             <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})'>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click = "excluirFuncionario({{$funcionario->id}})">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -75,7 +75,7 @@
                             <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})'>
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click = "excluirFuncionario({{$funcionario->id}})">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -94,10 +94,10 @@
                             </ul>
                         </div>
                         <div class="employee-actions">
-                            <button class="action-btn btn-edit" >
+                            <button class="action-btn btn-edit" wire:click='editarFuncionario({{$funcionario->id}})' >
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
-                            <button class="action-btn btn-delete">
+                            <button class="action-btn btn-delete" wire:click = "excluirFuncionario({{$funcionario->id}})">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>

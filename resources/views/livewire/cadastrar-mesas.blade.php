@@ -22,6 +22,7 @@
                         <h3>Mesa {{$mesa->numero}}</h3>
                         <div class="status-container">
                             <div class="status-badge verde">{{$mesa->descricao->nome}}</div>
+                            <div class="status-badge verde">{{$mesa->id}}</div>
                         </div>
                     </div>
                         
@@ -41,6 +42,7 @@
                         <h3>Mesa {{$mesa->numero}}</h3>
                         <div class="status-container">
                             <div class="status-badge amarelo">{{$mesa->descricao->nome}}</div>
+                            <div class="status-badge verde">{{$mesa->id}}</div>
                         </div>
                     </div>
                         
@@ -60,6 +62,7 @@
                         <h3>Mesa {{$mesa->numero}}</h3>
                         <div class="status-container">
                             <div class="status-badge vermelho">{{$mesa->descricao->nome}}</div>
+                            <div class="status-badge verde">{{$mesa->id}}</div>
                         </div>
                     </div>
                         
