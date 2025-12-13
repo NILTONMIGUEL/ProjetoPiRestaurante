@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\User;
 
+
 class Funcionarios extends Component
 {
 
@@ -18,9 +19,14 @@ class Funcionarios extends Component
         
         return redirect()->route('admin-excluirFuncionario',$id);
     }
+
+
     public function render()
     {
+
+
         $funcionarios = User::orderBy('id_cargo', 'asc')->paginate(20);
+
         return view('livewire.funcionarios',[
             'funcionarios' => $funcionarios,
         ]);
