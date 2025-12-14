@@ -59,11 +59,11 @@
             <div class="form-actions">
                 
                 <a href="#" class="btn-cancel">
-                    <i class="fas fa-times-circle"></i> Cancelar
+                    <i class="fas fa-times-circle">&nbsp&nbsp</i> Cancelar
                 </a>
 
                 <button type="submit" class="btn-submit">
-                    <i class="fas fa-save"></i> Cadastrar Produto
+                    <i class="fas fa-save">&nbsp</i> Cadastrar Produto
                 </button>
                 
             </div>

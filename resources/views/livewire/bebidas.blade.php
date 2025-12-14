@@ -17,12 +17,12 @@
                     <span style="font-size:13px"> {{$produto->CategoriaProduto?->nome}}</span>
                 </div>
                 <div class="product-actions">
-                    <button class="action-btn-product btn-delete-product" >
-                        <i class="fas fa-trash-alt"></i> Excluir
-                    </button>
-                    <button class="action-btn-product btn-edit-product" >
-                        <i class="fas fa-pencil-alt"></i> Editar
-                    </button>
+                    <a href="{{route('admin-excluirProduto',$produto->id)}}" class="action-btn-product btn-delete-product" style="text-decoration:none">
+                        <i class="fas fa-trash-alt">&nbsp&nbsp</i> Excluir
+                    </a>
+                    <a href="{{route('admin-editarProdutos',$produto->id)}}" class="action-btn-product btn-edit-product" style="text-decoration:none">
+                        <i class="fas fa-pencil-alt">&nbsp&nbsp</i> Editar
+                    </a>
                     
                 </div>
             </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admEditarMesas;
 use App\Http\Controllers\FuncionariosController;
+use App\Http\Controllers\produtosController;
 
 
 
@@ -72,6 +73,7 @@ Route::middleware('auth')->group(function () {
 
         //criando a rota de excluir funcionario
         Route::get('/admin-excluirFuncionario/{id}',[FuncionariosController::class, 'excluirFuncionario'])->name('admin-excluirFuncionario');
+        
         //PRODUTOS
         Route::get('/admin-produtos',function(){
             return view('adm.visualizarProdutos');
@@ -81,6 +83,9 @@ Route::middleware('auth')->group(function () {
             return view('adm.cadastrarProdutos');
         })->name('admin-cadastrarProdutos');
 
+        Route::get('/admin-editarProdutos/{id?}',[produtosController::class , 'editarProduto'])->name('admin-editarProdutos');
+
+        Route::get('/admin-excluirProduto/{id?}',[produtosController::class, 'excluirProduto'])->name('admin-excluirProduto');
 
 
 
