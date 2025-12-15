@@ -12,7 +12,7 @@
                         <p>{{$produto->descricao}}</p>
                         <div class="product-info-footer">
                             <span class="product-price-display">R$ {{$produto->preco}}</span>
-                            <button class="btn-add-to-cart" >Adicionar <i class="fas fa-plus"></i></button>
+                           <button class="btn-add-to-cart" wire:click="adicionar({{$produto->id}})" >Adicionar <i class="fas fa-plus"></i></button>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Carrinho;
+
 class Produtos extends Model
 {
     protected $fillable =[
@@ -20,4 +22,5 @@ class Produtos extends Model
     public function CategoriaProduto(){
         return $this->belongsTo(CategoriaProduto::class , 'id_categoriaProdutos');
     }
+    
 }

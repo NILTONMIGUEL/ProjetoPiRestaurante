@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&display=swap');
+
+/* --- Variáveis e Reset Básico --- */
+:root {
+    --color-primary: #FF4500; /* Laranja Vívido */
+    --color-secondary: #121212; /* Preto Escuro do fundo */
+    --color-background-light: #222; /* Fundo do card/formulário */
+    --color-text-light: #f5f5f5; /* Texto Branco/Claro */
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh;
+}
+
+/* ---------------------------------------------------- */
+/* --- Estilos do Formulário de Login --- */
+/* ---------------------------------------------------- */
+
+.login-container {
+    max-width: 400px; /* Largura ideal para formulários de login */
+    width: 90%; /* Responsividade em telas menores */
+    background-color: var(--color-background-light);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    border-top: 5px solid var(--color-primary); /* Destaque no topo */
+    text-align: center;
+}
+
+.login-header {
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--color-text-light);
+    font-size: 1em;
+}
+
+/* Estilo para Inputs */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--color-text-light);
+    font-size: 1em;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.3);
+    outline: none;
+}
+
+/* Botão de Login */
+.btn-login {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-secondary); /* Texto escuro no botão de destaque */
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.btn-login:hover {
+    background-color: #e03b00; 
+    transform: translateY(-2px);
+}

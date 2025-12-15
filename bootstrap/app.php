@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'block.fk2' => \App\Http\Middleware\blockForeignKey::class,
             'block.pk1' => \App\Http\Middleware\blockPrimaryKey::class,
+            
         ]);
 
 

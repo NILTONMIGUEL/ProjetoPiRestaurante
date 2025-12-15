@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 
 use App\Models\Categoria;
 use App\Models\Cargos;
+use App\Models\Carrinho;
+
 
 class User extends Authenticatable
 {
@@ -62,4 +64,6 @@ class User extends Authenticatable
         //um cargo tem apenas um funcionarios
         return $this->belongsTo(Cargos::class, 'id_cargo');
     }
+    
+    
 }

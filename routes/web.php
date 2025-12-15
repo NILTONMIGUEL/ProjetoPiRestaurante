@@ -29,7 +29,11 @@ Route::get('/admin',function(){
 //criando o cardapio digital
 
 Route::get('/cardapio-digital',[cardapioDigitalController::class , 'index'])->name('cardapio.digital');
+Route::post('/cardapio-digital',[cardapioDigitalController::class , 'logar'])->name('cardapio.digital-logar');
 
+Route::get('/loginCardapio',function(){
+    return view('cardapio.login');
+})->name('loginCardapio');
 
 
 
