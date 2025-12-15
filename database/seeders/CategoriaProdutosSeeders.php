@@ -15,7 +15,10 @@ class CategoriaProdutosSeeders extends Seeder
     public function run(): void
     {
         CategoriaProduto::insert([
-            ['nome' => "Entrada Principal",
+            ['nome' => "Entrada ",
+            'created_at' => now(),
+            'updated_at' => now()],
+            ['nome' => "Pratos Principais",
             'created_at' => now(),
             'updated_at' => now()],
             ['nome' => "Sobremesa",

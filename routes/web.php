@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admEditarMesas;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\produtosController;
+use App\Http\Controllers\cardapioDigitalController;
 
 
 
@@ -27,9 +28,12 @@ Route::get('/admin',function(){
 
 //criando o cardapio digital
 
-Route::get('/cardapio-digital/{id}',function(){
-    return view('cardapioDigital');
-})->name('cardapio.digital');
+Route::get('/cardapio-digital',[cardapioDigitalController::class , 'index'])->name('cardapio.digital');
+
+
+
+
+
 
 
 

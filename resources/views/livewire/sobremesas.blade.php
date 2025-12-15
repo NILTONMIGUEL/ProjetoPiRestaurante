@@ -1,7 +1,7 @@
 <div class="products-grid">
     
     @foreach($produtos as $produto)
-        @if($produto->id_categoriaProdutos == 2)
+        @if($produto->id_categoriaProdutos == 3)
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="{{asset("storage/{$produto->imagem}")}}" alt="{{asset("storage/{$produto->nome}")}}" class="product-image">

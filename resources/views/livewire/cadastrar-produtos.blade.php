@@ -58,7 +58,7 @@
             </div>
             <div class="form-actions">
                 
-                <a href="#" class="btn-cancel">
+                <a href="{{route('admin-produtos')}}" class="btn-cancel">
                     <i class="fas fa-times-circle">&nbsp&nbsp</i> Cancelar
                 </a>
 

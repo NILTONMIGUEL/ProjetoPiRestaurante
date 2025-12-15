@@ -10,8 +10,10 @@
                 <i class="fas fa-plus-circle"></i> Cadastrar Produto
             </a>
         </div>
-        <h2 style="color: white; margin:60px 0;">Entrada Principal</h2>
+        <h2 style="color: white; margin:60px 0;">Entrada</h2>
         @livewire('visualizar-produtos')
+        <h2 style="color: white; margin:60px 0;">Prato Principal</h2>
+        @livewire('pratos-principal')
         <h2 style="color: white; margin:60px 0;">Sobremesas</h2>
         @livewire('sobremesas')
         <h2 style="color: white; margin:60px 0;">Bebidas</h2>
